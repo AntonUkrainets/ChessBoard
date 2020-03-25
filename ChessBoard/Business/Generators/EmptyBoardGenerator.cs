@@ -5,13 +5,13 @@ namespace ChessBoard.Business.Generator
 {
     public class EmptyBoardGenerator : IBoardGenerator
     {
-        public bool CanGenerate(uint width, uint height)
+        public bool CanGenerate(int width, int height)
         {
             return width > 0
                 && height > 0;
         }
 
-        public Board Generate(uint width, uint height)
+        public Board Generate(int width, int height)
         {
             return new Board(width, height);
         }

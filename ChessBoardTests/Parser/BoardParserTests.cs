@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using ChessBoard.Parser;
 using Xunit;
 
@@ -46,8 +44,8 @@ namespace ChessBoardTests.Parser
         [Theory]
         [InlineData(1, 2, "1", "2")]
         public void Parse(
-            uint width,
-            uint height,
+            int width,
+            int height,
             params string[] args)
         {
             // Act
@@ -59,15 +57,17 @@ namespace ChessBoardTests.Parser
         }
 
         [Theory]
-        [InlineData(-1, -2, "-1", "-2")]
-        public void Parse_TryConvertToUInt(
-            uint width,
-            uint height,
-            params string[] args)
+        [InlineData("a", "b")]
+        public void Parse_TryConvertToInt(params string[] args)
         {
-            // Act
-            var actualValue = boardParser.Parse(args);
+            //Assert
+            Assert.Throws<ArgumentException>(() => boardParser.Parse(args));
+        }
 
+        [Theory]
+        [InlineData("-1", "-2")]
+        public void Parse_IsPositiveNumber(params string[] args)
+        {
             //Assert
             Assert.Throws<ArgumentException>(() => boardParser.Parse(args));
         }

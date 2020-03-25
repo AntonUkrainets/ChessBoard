@@ -4,7 +4,7 @@ namespace ChessBoard.Business.Interfaces
 {
     public interface IBoardGenerator
     {
-        bool CanGenerate(uint width, uint height);
-        Board Generate(uint width, uint height);
+        bool CanGenerate(int width, int height);
+        Board Generate(int width, int height);
     }
 }

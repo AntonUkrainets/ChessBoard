@@ -10,11 +10,11 @@
             set => field[x, y] = value;
         }
 
-        public uint Width { get; }
+        public int Width { get; }
 
-        public uint Height { get; }
+        public int Height { get; }
 
-        public Board(uint width, uint height)
+        public Board(int width, int height)
         {
             field = new char[width, height];
 
